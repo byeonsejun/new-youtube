@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+  @apply flex flex-col items-center;
+  @apply text-gray-50;
+  background-color: #0f0f0f;
+}
+
+#root {
+  @apply w-full;
+  max-width: 1664px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.mainLoder {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translateX(-50%, -50%) !important;
+}
+
+.error_page {
+  padding-top: 25%;
+  text-align: center;
+}
+
+.error_page > h2 {
+  font-size: calc(1.325rem + .9vw);
+}
+
+.error_page > div {
+  cursor: default;
+  font-size: 72px;
+}
+
+.error_page > button {
+  background-color: #ff0000;
+  border: none;
+  color: #f2f2f2;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+.main-item-list {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  justify-items: center;
+  padding: 0 1rem;
+}
+.main-item-list > li {
+  max-width: 320px;
+  cursor: pointer;
+}
+
+header a , header form {
+  height: 40px;
+}
+
+.search-input {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  line-height: 40px;
+  font-size: 20px;
+  border: solid 1px #303030;
+  border-right: none;
+}
+
+.header-button {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #303030;
+}
+
+#leftHt {
+  height: 100%;
+}
+#rightHt {
+  position: static;
+  overflow-y: auto;
+}
+
+.desc-pre {
+  white-space: pre-wrap;
+  position: relative;
+}
+.desc-pre > .more {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background-color: #333232;
+  font-weight: bold;
+  padding: 2px;
+  font-size: 14px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.desc-pre > .briefly {
+  display: table;
+  margin-top: 25px;
+  cursor: pointer;
+  background-color: #333232;
+  font-weight: bold;
+}
+
+@media screen and (min-width:495px) {
+  .main-item-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media screen and (min-width:768px) {
+  .main-item-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .main-item-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr))
+  }
+}
+
+@media screen and (min-width:1280px) {
+  .main-item-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr))
+  }
+}
+
+
+
+/* youtube = 495 in just one  */
+
+/* 495 768 1128 */
