@@ -13,19 +13,19 @@ export default class Youtube {
       .then((res) => res.data.items[0].snippet.thumbnails.default.url);
   }
 
-  async relatedVideos(id) {
+  async relatedVideos(channelTitle) {
     return this.apiClient
       .search({
         params: {
           part: 'snippet',
           maxResults: 25,
+          // maxResults: 5,
           type: 'video',
-          relatedToVideoId: id,
+          // relatedToVideoId: id, // 유튜브 측에서 지원 중단...
+          q: channelTitle,
         },
       })
-      .then((res) =>
-        res.data.items.map((item) => ({ ...item, id: item.id.videoId }))
-      );
+      .then((res) => res.data.items.map((item) => ({ ...item, id: item.id.videoId })));
   }
 
   async #searchByKeyword(keyword) {
@@ -34,13 +34,12 @@ export default class Youtube {
         params: {
           part: 'snippet',
           maxResults: 25,
+          // maxResults: 5,
           type: 'video',
           q: keyword,
         },
       })
-      .then((res) =>
-        res.data.items.map((item) => ({ ...item, id: item.id.videoId }))
-      );
+      .then((res) => res.data.items.map((item) => ({ ...item, id: item.id.videoId })));
   }
 
   async #mostPopular() {
@@ -49,10 +48,10 @@ export default class Youtube {
         params: {
           part: 'snippet',
           maxResults: 25,
+          // maxResults: 5,
           chart: 'mostPopular',
         },
       })
       .then((res) => res.data.items);
   }
-
 }

@@ -2,15 +2,17 @@ import React from 'react';
 import { useYoutubeApi } from '../context/YoutubeApiContext';
 import { useQuery } from '@tanstack/react-query';
 import VideoCard from './VideoCard';
-export default function RelatedVideos({ id }) {
+export default function RelatedVideos({ channelTitle }) {
   const { youtube } = useYoutubeApi();
   const {
     isLoading,
     error,
     data: videos,
-  } = useQuery(['related', id], () => 
-    youtube.relatedVideos(id),
+  } = useQuery(
+    ['related', channelTitle],
+    () => youtube.relatedVideos(channelTitle),
     { staleTime: 1000 * 60 * 5 }
+    // { staleTime: 1000 * 60 * 60 }
   );
   return (
     <>
@@ -19,7 +21,7 @@ export default function RelatedVideos({ id }) {
       {videos && (
         <ul>
           {videos.map((video) => (
-            <VideoCard key={video.id} video={video} type='list' />
+            <VideoCard key={video.id} video={video} type="list" />
           ))}
         </ul>
       )}
