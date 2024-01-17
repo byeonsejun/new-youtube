@@ -18,6 +18,7 @@ export default function Videos() {
     { staleTime: 1000 * 60 * 1 }
     // { staleTime: 1000 * 60 * 60 }
   ); // quanta 부담됑..
+
   return (
     <>
       {isLoading && <FadeLoader color="#f2f2f2" className="mainLoder" />}

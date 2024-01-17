@@ -11,20 +11,24 @@ export default function VideoDetail() {
   const [desc, setDesc] = useState(false);
 
   const { title, channelId, channelTitle, description } = video.snippet;
+
+  const showDesc = () => setDesc((pre) => !pre);
   const resizeHeight = () => {
     let elHeight = document.getElementById('leftHt').clientHeight;
     document.getElementById('rightHt').style.height = `${elHeight}px`;
   };
-  const showDesc = () => setDesc((pre) => !pre);
 
   useEffect(() => {
     resizeHeight();
+  }, [desc]);
+
+  useEffect(() => {
     setDesc(false);
   }, [video]);
 
   return (
-    <section className="flex flex-col lg:flex-row">
-      <article id="leftHt" className="basis-4/6 leftHt">
+    <section id="detail_section" className="flex flex-col min-h-[100vh] lg:flex-row">
+      <article id="leftHt" className="basis-4/6">
         <iframe
           id="player"
           type="text/html"

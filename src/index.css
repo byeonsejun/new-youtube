@@ -8,9 +8,8 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -23,11 +22,11 @@ body {
 #root {
   @apply w-full;
   max-width: 1664px;
+  height: 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .mainLoder {
@@ -43,7 +42,7 @@ code {
 }
 
 .error_page > h2 {
-  font-size: calc(1.325rem + .9vw);
+  font-size: calc(1.325rem + 0.9vw);
 }
 
 .error_page > div {
@@ -72,7 +71,8 @@ code {
   cursor: pointer;
 }
 
-header a , header form {
+header a,
+header form {
   height: 40px;
 }
 
@@ -89,6 +89,10 @@ header a , header form {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   background-color: #303030;
+}
+
+#detail_section {
+  min-height: calc(100vh - 90px);
 }
 
 #leftHt {
@@ -123,31 +127,32 @@ header a , header form {
   font-weight: bold;
 }
 
-@media screen and (min-width:495px) {
+@media screen and (min-width: 495px) {
   .main-item-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr))
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .main-item-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr))
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   .main-item-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr))
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  #leftHt {
+    min-height: calc(100vh - 90px);
   }
 }
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width: 1280px) {
   .main-item-list {
-    grid-template-columns: repeat(5, minmax(0, 1fr))
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
-
-
 
 /* youtube = 495 in just one  */
 
