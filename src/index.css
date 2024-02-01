@@ -117,8 +117,8 @@ header form {
 }
 #player_box {
   position: relative;
-  padding: 56.25% 0 0 0;
-  max-height: calc(100vh - 73px);
+  height: 46.25vw;
+  max-height: 56.25vw;
 }
 #player {
   position: absolute;
