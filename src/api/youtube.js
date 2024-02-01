@@ -50,6 +50,7 @@ export default class Youtube {
           maxResults: 25,
           // maxResults: 5,
           chart: 'mostPopular',
+          regionCode: 'KR',
         },
       })
       .then((res) => res.data.items);

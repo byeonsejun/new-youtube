@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useYoutubeApi } from '../context/YoutubeApiContext';
 import { useQuery } from '@tanstack/react-query';
 import VideoCard from './VideoCard';
@@ -14,6 +14,7 @@ export default function RelatedVideos({ channelTitle }) {
     { staleTime: 1000 * 60 * 5 }
     // { staleTime: 1000 * 60 * 60 }
   );
+
   return (
     <>
       {isLoading && <p>Loading...</p>}

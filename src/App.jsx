@@ -13,6 +13,7 @@ function App() {
           <Outlet />
         </QueryClientProvider>
       </YoutubeApiProvider>
+      <div id="portal" />
     </>
   );
 }

@@ -12,50 +12,45 @@ export default function VideoDetail() {
 
   const { title, channelId, channelTitle, description } = video.snippet;
 
-  const showDesc = () => setDesc((pre) => !pre);
-  const resizeHeight = () => {
-    let elHeight = document.getElementById('leftHt').clientHeight;
-    document.getElementById('rightHt').style.height = `${elHeight}px`;
-  };
-
-  useEffect(() => {
-    resizeHeight();
-  }, [desc]);
+  const showDesc = () => setDesc(true);
+  const hideDesc = () => setDesc(false);
 
   useEffect(() => {
     setDesc(false);
   }, [video]);
 
   return (
-    <section id="detail_section" className="flex flex-col min-h-[100vh] lg:flex-row">
-      <article id="leftHt" className="basis-4/6">
-        <iframe
-          id="player"
-          type="text/html"
-          width="100%"
-          height="640"
-          src={`https://www.youtube.com/embed/${video.id}`}
-          frameBorder="0"
-          title={title}
-        />
+    <section id="detail_section" className="flex flex-col mt-[73px] min-h-[100vh] ">
+      <article id="leftHt">
+        <div id="player_box">
+          <iframe
+            id="player"
+            type="text/html"
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            title={title}
+          />
+        </div>
         <div className="p-8">
           <h2 className="text-xl font-bold">{title}</h2>
           <ChannelInfo id={channelId} name={channelTitle} />
-          <pre className={desc ? 'desc-pre' : `desc-pre line-clamp-2`}>
-            {description}
+          <pre
+            className={`bg-[#272727] p-4 pb-7 rounded-lg ${desc ? 'desc-pre' : `line-clamp-1 cursor-pointer`}`}
+            onClick={!desc ? showDesc : undefined}
+          >
+            {description && <p className="text-[#f1f1f1] font-bold">{description}</p>}
             {desc ? (
-              <span className="briefly" onClick={showDesc}>
-                Briefly...
+              <span className="briefly" onClick={hideDesc}>
+                간략히
               </span>
             ) : (
-              <span className="more" onClick={showDesc}>
-                ...More
-              </span>
+              <p className="more">...더보기</p>
             )}
           </pre>
         </div>
       </article>
-      <section id="rightHt" className="basis-2/6">
+      <section id="rightHt">
         <RelatedVideos channelTitle={channelTitle} />
       </section>
     </section>
